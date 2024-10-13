@@ -1,32 +1,29 @@
 # esp32-keyble-homeassistant
-Use an ESP32 Ethernet Gateway by Olimex (https://www.olimex.com/Products/IoT/ESP32/ESP32-GATEWAY/open-source-hardware) for the Eqiva Bluetooth smart lock to integrate it in Home Assistant as MQTT lock.
+Verwende das ESP32-POE IoT Entwicklungsboard von Olimex (https://www.olimex.com/Products/IoT/ESP32/ESP32-POE/open-source-hardware) für das Eqiva Bluetooth-Smartlock, um es in Home Assistant als MQTT-Lock zu integrieren. Das Board bietet 100 Mb Ethernet, Power over Ethernet (PoE), WiFi, BLE und einen integrierten Programmierer.
 
-Key points:
+Wichtige Punkte:
+Nutzung der NimBLE-Arduino-Bibliothek (weniger Speicherverbrauch, stabiler!)
+Immer aktive Bluetooth-Verbindung (schnelle Steuerung des Schlosses mit minimalem Batterieeinsatz)
+Home Assistant MQTT-Schlosseinheit wird automatisch konfiguriert
+Optimierungen zur Vermeidung unnötiger Logik
+Das Projekt wurde auf dem ESP32-POE erfolgreich getestet und läuft seit einigen Monaten stabil. Es könnte auch mit ähnlicher ESP32-Hardware mit integriertem Ethernet ohne oder mit minimalen Anpassungen funktionieren.
 
-- Use of NimBLE-Arduino library (lower memory usage, less crashes!)
-- Always-on Bluetooth connection (zero-delay control of the lock with minimal battery impact!)
-- Home Assistant MQTT lock entity autoconfiguration!
-- Various tweaks to avoid unnecessary logic
+Installation:
+Voraussetzungen (nicht hier abgedeckt):
 
-The project has been fully tested on the Olimex hardware above (I have the one with external antenna for maximum signal) successfully and it has been running rock solid for a few months. It might be working for similar ESP32 hardware with on-board Ethernet with minimal or no modification.
+Installiertes VSCode + Platformio Plugin
+Installierte Olimex ESP32 USB-Treiber
+Konfigurierter und laufender MQTT-Server
+Konfigurierter und verbundener HomeAssistant-Server, der mit dem MQTT-Server gekoppelt ist
+Eqiva-Lock-Zugangsdaten, die mit der Anleitung im Projekt generiert wurden: https://github.com/oyooyo/keyble
+Schritte:
 
-# How to install:
-
-Pre-requisites not covered here:
-- Installed VSCode + Platformio plugin
-- Installed Olimex ESP32 USB drivers
-- MQTT server configured and running
-- HomeAssistant server configured, running and paired to the MQTT server
-- Eqiva Lock credentials generated using the guide in the project: https://github.com/oyooyo/keyble
-
-Steps:
-- Clone the repo
-- Open the project with VSCode + Platformio
-- Edit the configuration parameters in src/main.cpp to add your credentials for MQTT and Eqiva Lock
-- Connect and flash to the Olimex device
-- A lock entity should now appear on your HomeAssistant server, enjoy!
-
-Based on the great work of:
+Repository klonen
+Projekt mit VSCode + Platformio öffnen
+Konfigurationsparameter in src/main.cpp bearbeiten und deine MQTT- und Eqiva-Lock-Zugangsdaten einfügen
+Gerät verbinden und auf das ESP32-POE-Board flashen
+Eine Schlosseinheit sollte nun auf deinem HomeAssistant-Server erscheinen – viel Spaß!
+Basierend auf der großartigen Arbeit von:
 
 tc-maxx/esp32-keyble
 lumokitho/esp32-keyble
