@@ -1,0 +1,9 @@
+{
+	"folders": [
+		{
+			"name": "esp32-keyble-homeassistant",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
